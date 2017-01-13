@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is the pizza order web page</title>
+    </head>
+    <body>
+        <h1> Pizza Guys Order Form</h1>
+        <img src="pizza.jpg" alt="pizza" style="height: 300px;width: 500px">
+        <form action="formProcesor.html" method="GET">
+            Name:<br>
+            <input type="text" name="name" placeholder="your name" required><br>
+            Address: #### Street Name<br>
+            <input type="text" name="address" placeholder="deliver address" required><br>
+            Phone Number: 123-123-1234<br>
+            <input type="tel" name="phone" placeholder="123-123-1234" required><br>
+            Pizza Size<br>
+            <input type="radio" name="size" value="large" checked> Large
+            <input type="radio" name="size" value="medium"> Medium
+            <input type="radio" name="size" value="small"> Small<br>
+            Pizza Topings<br>
+            <input type="checkbox" name="top" value="sausage"> Sausage
+            <input type="checkbox" name="top" value="pepperoin"> Pepperoin
+            <input type="checkbox" name="top" value="olives"> Olives
+            <input type="checkbox" name="top" value="anchovies"> Anchovies
+            <input type="checkbox" name="top" value="onions"> Onions<br>
+            <br><br>
+            <button type="submit" value="Submit">Submit</button>
+            <button type="reset" value="Reset">Reset</button>
+        </form> 
+    </body>
+</html>
