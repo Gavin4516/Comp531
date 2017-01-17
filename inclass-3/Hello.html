@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Geng Chen's first web page</title>
+</head>
+<style type="text/css">
+	body {
+		background-color: yellow;
+	}
+</style>
+<body onload="setTimeout(timeCountDown, 5000); show">
+	<P>My name is <strong>Geng Chen</strong>, the first year graduate student of Department of Computer Science. Life in Houston is good, but a little bit boring. A car is an indispensable part of daily life, however, I don't have one yet. I should take a bus or taxi to go shopping, which makes me so upset. When I was in China, the supermarket is so close to my home... ...</P>
+
+	<p>I do love <a href="http://www.youtube.com">YouTube</a> here, less ad times, haha.</p>
+
+	<img src="xihu.png" alt="Xihu Lake">
+
+	<textarea rows="4" cols="50" id="a"></textarea>
+	<button type="submit" value="Submit">Submit</button>
+	<button onclick="clearInput()">Clear</button>
+	<div id="countDown"></div>
+</body>
+<script>
+	var isPaused = false;
+	show();
+	function timeCountDown() {
+		var msg = "the page will redirect when the counter reaches zero";
+		alert(msg);
+	}
+
+	function show() {
+		var cd = document.getElementById("countDown");
+		cd.innerHTML = "<p>The page will redirect in <span id='indicator'></span> seconds</p>";
+		cd.innerHTML += "<div><button onclick='pause()'>pause</button><button onclick='resume()'>resume</button></div>";
+		start();
+	}
+
+	function pause() {
+		isPaused = true;
+	}
+
+	function resume() {
+		isPaused = false;
+	}
+
+	function start() {
+		var time = 15;
+		var indicator = document.getElementById("indicator");
+		indicator.innerHTML = time;
+		var id = setInterval(function(){
+			if(!isPaused){
+				time--;
+			}
+			indicator.innerHTML = + time;
+			if(time === 0){
+				clearInterval(id);
+				window.location = "http://www.clear.rice.edu/comp431/sample/hello.html";
+			}
+		},1000)
+	}
+
+	function clearInput() {
+		document.getElementsByTagName("textarea")[0].value = "";
+	}
+</script>
+</html>
