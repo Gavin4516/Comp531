@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ricebook Registration</title>
+        <meta charset="utf-8">
+	    <meta name="author" content="Geng Chen">
+    </head>
+    <style>
+        .main-container {
+            text-align: center;
+        }
+        .form-container {
+            width: 490px;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .box {
+            width: 500px;
+            font-size: 20px;
+            padding: 7px;
+        }
+        .text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .star {
+            color: red;
+        }
+        .submit-button {
+            width: 30%;
+            font-size: 20px;
+            color: white;
+            background-color: deepskyblue;
+            padding: 5px;
+        }
+        .reset-button {
+            width: 30%;
+            font-size: 20px;
+            color: white;
+            background-color: red;
+            padding: 5px;
+        }
+        .button {
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+    <body onload="setTimestamp()">
+        <div class="main-container">
+            <h1>Ricebook Registration</h1>
+            <div class="form-container">
+                <form action="formProcessor.html" method="GET">
+                    <p class="text">Account Name:<span class="star">* Letters and Numbers only. Start with letters.</span></p>
+                    <input type="text" class="box" name="accountname" placeholder="account name"pattern="[A-Za-z][A-Za-z0-9]*" required>
+                    <p class="text">Display Name(Optional):</p>
+                    <input type="text" class="box" name="displayname" placeholder="display name">
+                    <p class="text">Email Address:<span class="star">*</span></p>
+                    <input type="email" class="box" name="email" placeholder="email" pattern="\S+@\S+\.\S+" required>
+                    <p class="text">Phone Number:<span class="star">*</span></p>
+                    <input type="tel" class="box" name="phonenumber" placeholder="phone number" pattern="\d{3}-\d{3}-\d{4}" required>
+                    <p class="text">Date of Birth:<span class="star" id="birth-check">* You must be older than 18</span></p>
+                    <input type="date" class="box" name="birth" id="birthday" required>
+                    <p class="text">Zipcode:<span class="star">*</span></p>
+                    <input type="number" class="box" name="zip" pattern="^\d{5}(-\d{4})?" placeholder="12345 or 12345-1234" required>
+                    <p class="text">Password:<span class="star" id="pass-check">*</span></p>
+                    <input type="password" class="box" name="password" id="password" required>
+                    <p class="text">Confirmation:<span class="star">*</span></p>
+                    <input type="password" class="box" name="pass-confirm" id="pass-confirm" required>
+                    <input type="hidden" name="timestamp" id="timestamp" value="NaN">
+                    <div class="button">
+                        <input type="submit" value="Submit" onclick="return checkForm()" class="submit-button">
+                        <input type="reset" value="Reset" class="reset-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        function passwordCheck() {
+            var pass1 = document.getElementById("password").value;
+            var pass2 = document.getElementById("pass-confirm").value;
+            if (pass1 != pass2) {
+                document.getElementById("pass-check").innerHTML = "*<br>Password doesn't match!"
+                return false;
+            }
+            document.getElementById("pass-check").innerHTML = "*";
+            return true;
+        }
+
+        function birthCheck() {
+            var birthString = document.getElementById("birthday").value;
+            var birthday = new Date(birthString);
+            var today = new Date();
+            var year = today.getFullYear() - birthday.getFullYear();
+            var month = today.getMonth() - birthday.getMonth();
+            var day = today.getDay() - birthday.getDay();
+            if (year < 18 || (year == 18 && (month < 0 || month == 0 && day < 0))) {
+                document.getElementById("birth-check").innerHTML = "* You must be older than 18<br>You don't reach the minimum age requirement"
+                return false;
+            }
+            document.getElementById("birth-check").innerHTML = "* You must be older than 18";
+            return true;
+        }
+
+        function setTimestamp() {
+            document.getElementById("timestamp").value = Date.now()
+        }
+
+        function checkForm() {
+            return passwordCheck() && birthCheck();
+        }
+    </script>
+</html>

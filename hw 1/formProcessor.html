@@ -1,0 +1,41 @@
+<DOCTYPE html>
+<html>
+    <title>FormProcessor</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Geng Chen">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <body>
+        <h1>Registration Form</h1>
+        <div id="form"></div>
+    </body>
+    <script>
+        var query = window.location.search.substr(1).split("&");
+        var map = {};
+        query.forEach(function(pair) {
+            var key = decodeURIComponent(pair.split("=")[0]);
+            var value = decodeURIComponent(pair.split("=")[1]);
+            if (key == "timestamp"){
+			    value = new Date(parseInt(value));
+		    }
+            map[key] = value;
+        })
+        var table = "<table border='1'>";
+        for (k in map) {
+            table += "<tr>";
+            table += "<td>" + k + "</td>";
+            table += "<td>" + map[k] + "</td>";
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("form").innerHTML = table;
+    </script>
+</html>
