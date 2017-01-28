@@ -1,0 +1,53 @@
+.img-card {
+	width: 300px;
+	height: 240px;
+}
+
+img {
+	width: 100%;
+	height: 200px;
+	float: left；
+}
+
+.text-card {
+	text-align: left;
+	width: 400px;
+	height: 240px;
+}
+
+.card-button {
+width: 100%;
+height: 31px;
+background-color: lightblue;
+font-size: 20px;
+color: red;
+padding: 2px;
+}
+
+table, th, td {
+    border: 5px solid black;
+    border-collapse: collapse;
+    border-color: lightgreen;
+}
+
+.profile-container {
+	width: 500px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#wrong-result {
+	color: red;
+}
+
+#correct-result {
+	color: lightgreen;
+}
+
+#update-btn {
+	width: 200px;
+	color: black;
+	background-color: lightblue;
+	border-radius: 10px;
+}

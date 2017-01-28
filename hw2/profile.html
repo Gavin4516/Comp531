@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile Page</title>
+	<meta name="author" content="Geng Chen">
+	<script type="text/javascript" src="profile.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div><a href="main.html">Main Page</a></div>
+	<div class="profile-container">
+		<table>
+			<tr>
+				<td>Display Name:</td>
+				<td><input type="text" id="display-name"></td>
+				<td>Geng Chen</td>
+			</tr>
+			<tr>
+				<td>Email Address:</td>
+				<td><input type="Email" id="email-address"></td>
+				<td>gc29@rice.edu</td>
+			</tr>
+			<tr>
+				<td>Phone number:</td>
+				<td><input type="text" id="phone-number"></td>
+				<td>111-222-3344</td>
+			</tr>
+			<tr>
+				<td>Zip Code:</td>
+				<td><input type="text" id="zip-code"></td>
+				<td>77005 or 77005-1234</td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type="password" id="password"></td>
+				<td>1234</td>
+			</tr>
+			<tr>
+				<td>Password Confirmation:</td>
+				<td><input type="password" id="password-confirmation"></td>
+				<td></td>
+			</tr>
+		</table>
+		<button id="update-btn">Update</button>
+		<div id="wrong-result"></div>
+		<div id="correct-result"></div>
+	</div>
+</body>
+</html>
