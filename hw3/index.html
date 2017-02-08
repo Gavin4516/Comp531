@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="author" content="Geng Chen">
+	<title>JavaScript Mine Sweeper</title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body onload="OMine.fInit()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+	<div id="dTop" align="center" style=" border-style: inset; border-width: 10;width:400">
+	<table cellpadding="0" cellspacing="0" style="border-collapse: collapse;" width="600" height="60">
+		 <tr>
+			  <td>
+			  Remaining Mines:
+			  <input type="text" id="txtFlagCount" value="">
+			  </td>
+			  <td>
+				  <input onclick="OMine.fRefreshMap()" type="image" id="btnRefreshMap" src="images/happy.gif">
+				  <input onclick="OMine.fShowMine();" type="button" name="B3" value="" style="display:none">
+			  </td>
+			  <td>
+				  <input type="radio" value="V1" checked name="R1" id="R1" onclick="ChangeMap(1)">Easy
+				  <input type="radio" value="V1" name="R1" id="R2" onclick="ChangeMap(2)">Medium
+				  <input type="radio" value="V1" name="R1" id="R3" onclick="ChangeMap(3)">Hard
+			  </td>
+		 </tr>
+  
+</table>
+</div>
+<div id="dMap" align="center"></div>
+</body>
+</html>
