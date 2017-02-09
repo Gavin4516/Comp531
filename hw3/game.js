@@ -48,10 +48,11 @@ OMine = {
   //Initialization
   fInit:function(){
     var T=this,MaxX=T.MaxX,MaxY=T.MaxY,nX,nY=MaxY,mineNum=T.mineNum,
-      AStr=['<table bordercolor="#000000" border="0" cellpadding="0" cellspacing="0" height="'+20*MaxY+'px" width="'+20*MaxX+'px" style="border: 10px inset #a0a0a0">'],
+      AStr=['<table bordercolor="#000000" border="0" cellpadding="0" cellspacing="0" height="'+35*MaxY+'px" width="'+35*MaxX+'px" style="border: 10px inset #a0a0a0">'],
       i=0,TAr,TMine=T.Mine;
     T.maxOpenNum=MaxX*MaxY-mineNum;
     time = 0;
+    window.clearInterval(timeInterval);
     timeInterval = setInterval(OMine.gameTime, 1000);
     while(nY--){
       AStr[++i]='<tr>';
@@ -230,7 +231,7 @@ OMine = {
 
   dealCookie:function(gameLevel, time) {
     var score = OMine.getCookie(gameLevel);
-    if (score < time) {
+    if (score > time) {
       document.cookie = gameLevel + "=" + time;
       alert("Congratulations! You got the highest score on " + OMine.gameLevel + " mode!" + "Score: " + time + "seconds");
     } else {
