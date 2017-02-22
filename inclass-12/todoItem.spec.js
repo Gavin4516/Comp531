@@ -17,7 +17,7 @@ describe('Validate ToDoItem', () => {
         // findDOMNode and assert 3 children of the ToDoItem element
         // assert the innerHTML of the todo is the text you initially set
         const node = TestUtils.renderIntoDocument(<div>
-                <ToDoItem text = {"text"} done = {false} toggle = {_ => _} remove = {_ => _}/>
+                <ToDoItem id = {0} text = {"text"} done = {false} toggle = {_ => _} remove = {_ => _}/>
             </div>)
         const ele = findDOMNode(node).children[0]
         expect(ele.children).to.have.length(3)
@@ -29,7 +29,7 @@ describe('Validate ToDoItem', () => {
         // findDOMNode and assert 3 children of the ToDoItem element
         // assert there is no child with classname 'completed'
         const node = TestUtils.renderIntoDocument(<div>
-                <ToDoItem text = {"text"} done = {false} toggle = {_ => _} remove = {_ => _}/>
+                <ToDoItem id = {0} text = {"text"} done = {false} toggle = {_ => _} remove = {_ => _}/>
             </div>)
         const ele = findDOMNode(node).children[0]
         expect(ele.children).to.have.length(3)
@@ -42,7 +42,7 @@ describe('Validate ToDoItem', () => {
         // when the checkbox is clicked via TestUtils.Simulate.click()
         // we expect the variable toggled to be true
         const node = TestUtils.renderIntoDocument(<div>
-                <ToDoItem text = {"text"} done = {false} toggle = {() => (toggled = !toggled)} remove = {_ => _}/>
+                <ToDoItem id = {0} text = {"text"} done = {false} toggle = {() => (toggled = !toggled)} remove = {_ => _}/>
             </div>)
         const ele = findDOMNode(node).children[0]
         TestUtils.Simulate.click(ele.children[0])
@@ -55,7 +55,7 @@ describe('Validate ToDoItem', () => {
         // when the remove button is clicked via TestUtils.Simulate.click()
         // we expect the variable removed to be true
         const node = TestUtils.renderIntoDocument(<div>
-                <ToDoItem text = {"text"} done = {false} toggle = {_ => _} remove = {() => (removed = !removed)}/>
+                <ToDoItem id = {0} text = {"text"} done = {false} toggle = {_ => _} remove = {() => (removed = !removed)}/>
             </div>)
         const ele = findDOMNode(node).children[0]
         TestUtils.Simulate.click(ele.children[2])
@@ -67,7 +67,7 @@ describe('Validate ToDoItem', () => {
         // the item should have done=true
         // assert that the rendered className is "completed"
         const node = TestUtils.renderIntoDocument(<div>
-                <ToDoItem text = {"text"} done = {true} toggle = {_ => _} remove = {_ => _}/>
+                <ToDoItem id = {0} text = {"text"} done = {true} toggle = {_ => _} remove = {_ => _}/>
             </div>)
         const ele = findDOMNode(node).children[0]
         expect(ele.children[1].className).equal("completed")
