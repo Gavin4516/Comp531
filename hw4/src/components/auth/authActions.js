@@ -37,3 +37,13 @@ export function registorAction(password, passwordConfirm){
         }
     }
 }
+
+export function clear() {
+    document.getElementById("regAccount").value = ''
+    document.getElementById("regName").value = ''
+    document.getElementById("regEmail").value = ''
+    document.getElementById("regDate").value = ''
+    document.getElementById("regPass").value = ''
+    document.getElementById("regZip").value = ''
+    document.getElementById("regPassCon").value = ''
+}

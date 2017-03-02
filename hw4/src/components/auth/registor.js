@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { registorAction } from './authActions'
+import { registorAction, clear } from './authActions'
 
 //The register form JSX
 
@@ -21,31 +21,31 @@ const Register = ({dispatch}) => {
 		<div className="form-group row">
 			<label className="col-xs-3 col-form-label">Account name</label>
 			<div className="col-xs-5">
-				<input className="form-control" type="text" name="account name" ref={(node) => { accountName = node }} required/>
+				<input className="form-control" type="text" id="regAccount" name="account name" ref={(node) => { accountName = node }} required/>
 			</div>
 		</div>
 		<div className="form-group row">
 			<label className="col-xs-3 col-form-label">Display name (optional)</label>
 			<div className="col-xs-5">
-				<input className="form-control" type="text" name="display name" ref={(node) => { displayName = node }}/>
+				<input className="form-control" type="text" name="display name" id="regName" ref={(node) => { displayName = node }}/>
 			</div>
 		</div>
 		<div className="form-group row">
 			<label className="col-xs-3 col-form-label">Email address</label>
 			<div className="col-xs-5">
-				<input className="form-control" type="email" placeholder="eg. guest@xx.xx" name="email address" ref={(node) => { email = node }} required/>
+				<input className="form-control" type="email" placeholder="eg. guest@xx.xx" name="email address" id="regEmail" ref={(node) => { email = node }} required/>
 			</div>
 		</div>
 		<div className="form-group row">
 			<label className="col-xs-3 col-form-label">Date of birth</label>
 			<div className="col-xs-5">
-				<input className="form-control" type="date" name="date of birth" placeholder="yyyy-mm-dd" pattern="^\d{4}-\d{1,2}-\d{1,2}$" ref={(node) => { dateOfBirth = node }} required/>
+				<input className="form-control" type="date" name="date of birth" placeholder="yyyy-mm-dd" id="regDate" pattern="^\d{4}-\d{1,2}-\d{1,2}$" ref={(node) => { dateOfBirth = node }} required/>
 			</div>
 		</div>
 		<div className="form-group row">
 			<label className="col-xs-3 col-form-label">Zipcode</label>
 			<div className="col-xs-5">
-				<input className="form-control" type="text" name="zipcode" placeholder="eg. 77005" pattern="^\d{5}(?:[-\s]\d{4})?$" ref={(node) => { zipcode = node }}required/>
+				<input className="form-control" type="text" name="zipcode" placeholder="eg. 77005" id="regZip" pattern="^\d{5}(?:[-\s]\d{4})?$" ref={(node) => { zipcode = node }}required/>
 			</div>
 		</div>
 		<div className="form-group row">
@@ -64,14 +64,7 @@ const Register = ({dispatch}) => {
 		<div className = "col-xs-8 col-md-offset-4">
 			<input type="submit" className="btn btn-primary" value="Submit"/>
 			
-			<input type="button" className="btn btn-primary" value="Clear" onClick={()=>{
-				accountName.value=''
-				displayName.value=''
-				email.value=''
-				dateOfBirth.value=''
-				zipcode=''
-				password.value=''
-				confirmPassword=''
+			<input type="button" className="btn btn-primary" value="Clear" onClick={()=>{clear()
 			}}/>
 		</div>
 		</form>
