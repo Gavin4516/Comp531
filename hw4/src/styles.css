@@ -1,0 +1,19 @@
+
+div.panel{
+	margin-top: 20px;
+}
+
+div.formRow{
+	margin-bottom: 30px;
+	margin-top: 15px;
+}
+
+.btn {
+	margin: 8px;
+}
+
+.profileForm{
+	display: block;
+	margin: auto;
+    padding: 15px;
+}
